@@ -5,8 +5,11 @@ require_once __DIR__ . "/Movie.php";
 
 $movie = new Movie("pandora", "storico", "2012");
 
-$movie = new Movie("robertone", "azione", "2000");
+$movie2 = new Movie("robertone", "azione", "2000");
 
+$movies = [$movie, $movie2];
+
+var_dump($movies);
 
 ?>
 
@@ -23,9 +26,14 @@ $movie = new Movie("robertone", "azione", "2000");
 
 <body>
     <section>
-        <h2>Movie</h2>
-        <p>Nome: <?php echo $movie->nome; ?></p>
-        <p>Anno: <?php echo $movie->anno; ?></p>
+        <h2>Movies</h2>
+        <?php foreach ($movies as $element) { ?>
+
+            <h4> Nome: <?php echo $element->nome ?></h4>
+            <p> Genere: <?php echo $element->genere ?></p>
+            <p> Anno-uscita: <?php echo $element->anno ?></p>
+
+        <?php } ?>
 
     </section>
 
